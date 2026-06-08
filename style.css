@@ -119,9 +119,6 @@ h1, h2, h3, h4 {
   height: 100%;
   padding: 24px;
   display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Flow from top to support vertical scrolling on overflow */
   z-index: 10;
   opacity: 0;
   pointer-events: none;
@@ -131,7 +128,10 @@ h1, h2, h3, h4 {
 }
 
 .game-screen.active {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(100%, auto);
+  justify-items: center;
   opacity: 1;
   pointer-events: auto;
 }
@@ -423,6 +423,10 @@ h1, h2, h3, h4 {
   justify-content: flex-start;
   background-color: #070a13;
   overflow: hidden; /* Do not allow game board playfield screen to scroll */
+}
+
+#screen-game.active {
+  display: flex; /* Override grid layout for the game arena to maintain core layouts */
 }
 
 #game-hud {
