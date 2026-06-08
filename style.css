@@ -1030,7 +1030,7 @@ h1, h2, h3, h4 {
 /* Phones & Smaller Handheld Displays */
 @media (max-width: 580px) {
   .glass-panel {
-    padding: 24px 16px;
+    padding: 16px 12px;
     border-radius: 20px;
     max-width: 95%;
   }
@@ -1062,6 +1062,65 @@ h1, h2, h3, h4 {
   .btn {
     padding: 14px 28px;
     font-size: 1rem;
+  }
+
+  .brand-header {
+    margin-bottom: 16px;
+  }
+
+  .pulse-ring {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+
+  .pulse-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .input-group {
+    margin-bottom: 18px;
+  }
+
+  /* Tutorial Column Spacing Optimizations */
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .tutorial-subtitle {
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+  }
+
+  .grid-columns {
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+
+  .instruction-column {
+    padding: 10px;
+  }
+
+  .column-header {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .items-list {
+    gap: 6px;
+  }
+
+  .tutorial-item {
+    padding: 6px 10px;
+    font-size: 0.82rem;
+    gap: 8px;
+    border-radius: 10px;
+  }
+
+  .tutorial-item .icon {
+    width: 18px;
+    height: 18px;
   }
 
   .badge-display {
