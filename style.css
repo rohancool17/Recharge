@@ -982,7 +982,7 @@ h1, h2, h3, h4 {
   }
 }
 
-/* RESPONSIVE DESIGN & IPAD OPTIMIZATION */
+/* RESPONSIVE DESIGN & IPAD/MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
   .glass-panel {
     padding: 24px 16px;
@@ -1000,9 +1000,9 @@ h1, h2, h3, h4 {
   }
   
   #game-hud {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 10px;
-    padding: 10px;
+    padding: 10px 16px;
     width: calc(100% - 20px);
     margin-top: 10px;
   }
@@ -1011,12 +1011,128 @@ h1, h2, h3, h4 {
     display: none; /* Hide profile on small screens to fit timer and score */
   }
   
-  #game-hud {
-    grid-template-columns: 2fr 1fr;
-  }
-  
   .score-number {
     font-size: 3.5rem;
+  }
+}
+
+/* Phones & Smaller Handheld Displays */
+@media (max-width: 580px) {
+  .glass-panel {
+    padding: 24px 16px;
+    border-radius: 20px;
+    max-width: 95%;
+  }
+
+  .brand-title {
+    font-size: 1.85rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+
+  .game-intro {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  #doctor-name {
+    padding: 14px 16px 14px 45px;
+    font-size: 1.05rem;
+  }
+
+  .input-prefix {
+    left: 16px;
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  .badge-display {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .badge-icon-container {
+    width: 48px;
+    height: 48px;
+  }
+
+  .badge-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .badge-heading {
+    font-size: 1.1rem;
+  }
+
+  .badge-description {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Scale down the falling elements to fit narrow screens */
+  .game-item {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .game-item .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Keep touch target wide enough on small screens */
+  .game-item::after {
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+  }
+
+  .floating-score {
+    font-size: 1.25rem;
+  }
+
+  #game-hud {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  #hud-score-value {
+    font-size: 1.3rem;
+  }
+
+  .score-number {
+    font-size: 3rem;
+  }
+
+  .stats-summary-grid {
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  .stat-box {
+    padding: 12px 8px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
   }
 }
 
