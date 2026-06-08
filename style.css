@@ -121,11 +121,13 @@ h1, h2, h3, h4 {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Flow from top to support vertical scrolling on overflow */
   z-index: 10;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .game-screen.active {
@@ -147,6 +149,8 @@ h1, h2, h3, h4 {
   width: 680px;
   z-index: 20;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: auto; /* Vertically and horizontally center when there is space, flow top on overflow */
+  flex-shrink: 0; /* Keep modal from shrinking under flex container constraints */
 }
 
 /* Welcome Card Specifics */
@@ -418,6 +422,7 @@ h1, h2, h3, h4 {
   padding: 0;
   justify-content: flex-start;
   background-color: #070a13;
+  overflow: hidden; /* Do not allow game board playfield screen to scroll */
 }
 
 #game-hud {
