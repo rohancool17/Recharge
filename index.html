@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Resilience Recharge | A Doctor's Wellness Challenge</title>
+  <meta name="description" content="An interactive wellness challenge for doctors. Tap positive habits, avoid burnout triggers. Play Resilience Recharge.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SVG Sprite sheet for crisp retina icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <!-- Positive Icons -->
+    <g id="icon-exercise">
+      <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9c-.4-.9-1.2-1.5-2.2-1.7V9.7c1.3.1 2.3.9 2.8 2.1l1.4 3.3c.5 1.2 1.7 2 3 2h3.3v-2h-3.3l-1.2-2.8 1.8-1.8 1.9 2c.6.6 1.4 1 2.3 1v-2c-.6 0-1.1-.2-1.5-.6l-1.6-1.7c-.4-.4-.9-.7-1.5-.7-.6 0-1.1.2-1.5.6L9.8 8.9zM5 13H3v8h2v-8zm16 0h-2v8h2v-8z" fill="currentColor"/>
+    </g>
+    <g id="icon-meditation">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-1.5-4c-.83 0-1.5-.67-1.5-1.5S10.67 10.5 11.5 10.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-5c-.83 0-1.5-.67-1.5-1.5S10.67 5.5 11.5 5.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/>
+    </g>
+    <g id="icon-balanced-diet">
+      <path d="M20 10c0-4.42-3.58-8-8-8S4 5.58 4 10c0 3.32 2.03 6.16 4.9 7.37L10.3 22h3.4l1.4-4.63C17.97 16.16 20 13.32 20 10zm-8 6c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="currentColor"/>
+    </g>
+    <g id="icon-sleep">
+      <path d="M12.3 22h.1c5.4 0 9.8-4.4 9.8-9.8 0-4-.9-7.8-2.6-11.2l-.7-.4-.3.8c-.5 1.6-1.5 3-2.9 3.9-1.4.9-3.1 1.4-4.8 1.4h-.3c.4 1.7.3 3.5-.3 5.1-.6 1.6-1.6 3-3 4-1.4 1-3.1 1.5-4.8 1.5h-.3c.5 1.8 1.5 3.3 3 4.4 1.5 1.1 3.3 1.7 5.1 1.7z" fill="currentColor"/>
+    </g>
+    <g id="icon-hydration">
+      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="currentColor"/>
+    </g>
+    <!-- Negative Icons -->
+    <g id="icon-stress">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
+    </g>
+    <g id="icon-long-hours">
+      <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" fill="currentColor"/>
+    </g>
+    <g id="icon-short-sleep">
+      <path d="M9.5 2C5.36 2 2 5.36 2 9.5S5.36 17 9.5 17h.3c-.4-1.7-.3-3.5.3-5.1.6-1.6 1.6-3 3-4 1.4-1 3.1-1.5 4.8-1.5h.3C16.7 3.6 13.3 2 9.5 2zm9.2 8.7L15 15h3v2h-6v-2l3.7-4.3H12V9h6v2z" fill="currentColor"/>
+    </g>
+    <g id="icon-junk-food">
+      <path d="M12 2C8.43 2 5.23 3.54 3 6.01L12 22l9-15.99C18.77 3.54 15.57 2 12 2zM7 7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="currentColor"/>
+    </g>
+    <g id="icon-cigarette">
+      <path d="M2 16h15v3H2zm17 0h3v3h-3zm-6-7h2v4h-2zm4 0h2v4h-2zm-8 0h2v4H9z" fill="currentColor"/>
+    </g>
+    <!-- Standard UI Icons -->
+    <g id="icon-heartbeat">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+    </g>
+  </svg>
+
+  <!-- Main Game Container -->
+  <main id="app-container">
+    
+    <!-- Ambient glowing backgrounds -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- SCREEN 1: WELCOME SCREEN -->
+    <section id="screen-welcome" class="game-screen active">
+      <div class="welcome-card glass-panel">
+        <div class="brand-header">
+          <div class="pulse-ring">
+            <svg class="icon pulse-icon" viewBox="0 0 24 24"><use href="#icon-heartbeat"></use></svg>
+          </div>
+          <h1 class="brand-title">Resilience Recharge</h1>
+          <p class="brand-tagline">A Wellness Challenge for Doctors</p>
+        </div>
+
+        <div class="welcome-content">
+          <p class="game-intro">
+            Modern medicine is demanding. Test your focus and reflexes in this 60-second resilience drill. Capture healthy choices, avoid burnout triggers.
+          </p>
+
+          <form id="form-registration" onsubmit="return false;">
+            <div class="input-group">
+              <label for="doctor-name" class="input-label">Enter Your Name</label>
+              <div class="input-wrapper">
+                <span class="input-prefix">Dr.</span>
+                <input type="text" id="doctor-name" required placeholder="Elizabeth Blackwell" autocomplete="off" maxlength="25">
+              </div>
+            </div>
+            <button type="submit" id="btn-submit-name" class="btn btn-primary btn-glow">
+              <span>Enter Ward</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: INSTRUCTIONS SCREEN -->
+    <section id="screen-tutorial" class="game-screen">
+      <div class="tutorial-card glass-panel">
+        <h2 id="tutorial-greeting" class="section-title">Welcome, Doctor!</h2>
+        <p class="tutorial-subtitle">Here's how to manage your daily resilience quota:</p>
+
+        <div class="grid-columns">
+          <!-- Positive items column -->
+          <div class="instruction-column col-positive">
+            <h3 class="column-header">🟢 Tap for Wellness (+50 pts)</h3>
+            <div class="items-list">
+              <div class="tutorial-item positive">
+                <svg class="icon"><use href="#icon-exercise"></use></svg>
+                <span>Exercise</span>
+              </div>
+              <div class="tutorial-item positive">
+                <svg class="icon"><use href="#icon-meditation"></use></svg>
+                <span>Meditation</span>
+              </div>
+              <div class="tutorial-item positive">
+                <svg class="icon"><use href="#icon-balanced-diet"></use></svg>
+                <span>Balanced Diet</span>
+              </div>
+              <div class="tutorial-item positive">
+                <svg class="icon"><use href="#icon-sleep"></use></svg>
+                <span>Sleep</span>
+              </div>
+              <div class="tutorial-item positive">
+                <svg class="icon"><use href="#icon-hydration"></use></svg>
+                <span>Hydration</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Negative items column -->
+          <div class="instruction-column col-negative">
+            <h3 class="column-header">🔴 Avoid Stressors (-30 pts)</h3>
+            <div class="items-list">
+              <div class="tutorial-item negative">
+                <svg class="icon"><use href="#icon-stress"></use></svg>
+                <span>Stress</span>
+              </div>
+              <div class="tutorial-item negative">
+                <svg class="icon"><use href="#icon-long-hours"></use></svg>
+                <span>Long Hours</span>
+              </div>
+              <div class="tutorial-item negative">
+                <svg class="icon"><use href="#icon-short-sleep"></use></svg>
+                <span>Short Sleep</span>
+              </div>
+              <div class="tutorial-item negative">
+                <svg class="icon"><use href="#icon-junk-food"></use></svg>
+                <span>Junk Food</span>
+              </div>
+              <div class="tutorial-item negative">
+                <svg class="icon"><use href="#icon-cigarette"></use></svg>
+                <span>Cigarette</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tutorial-action">
+          <button id="btn-start-game" class="btn btn-secondary btn-glow">
+            <span>Start Challenge (60s)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: GAME SCREEN -->
+    <section id="screen-game" class="game-screen">
+      <!-- Top HUD -->
+      <div id="game-hud" class="hud-panel glass-panel">
+        <div class="hud-item user-info">
+          <div class="hud-avatar">
+            <svg class="icon animated-pulse"><use href="#icon-heartbeat"></use></svg>
+          </div>
+          <div class="hud-details">
+            <span class="hud-label">Physician</span>
+            <span id="hud-doctor-name" class="hud-value">Dr. Blackwell</span>
+          </div>
+        </div>
+
+        <div class="hud-item timer-info">
+          <div class="hud-timer-container">
+            <div class="hud-timer-labels">
+              <span class="hud-label">Time Remaining</span>
+              <span id="hud-timer-text" class="hud-value numeric">60s</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div id="hud-timer-bar" class="progress-bar-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-item score-info">
+          <div class="hud-details align-right">
+            <span class="hud-label">Resilience Score</span>
+            <span id="hud-score-value" class="hud-value numeric count-up">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Playfield where items drop -->
+      <div id="game-playfield">
+        <!-- Floating canvas overlay for particles and floating texts -->
+        <canvas id="game-fx-canvas"></canvas>
+        
+        <!-- Score indicators, items will be dynamically injected here -->
+      </div>
+    </section>
+
+    <!-- SCREEN 4: GAMEOVER SCREEN -->
+    <section id="screen-gameover" class="game-screen">
+      <div class="gameover-card glass-panel">
+        <div class="card-header">
+          <h2 class="section-title text-glow">Evaluation Complete</h2>
+          <p id="gameover-greeting" class="gameover-subtitle">Dr. Blackwell's Resilience Report</p>
+        </div>
+
+        <div class="score-showcase">
+          <span class="score-label">Final Score</span>
+          <h1 id="gameover-score" class="score-number numeric">0</h1>
+          <span class="score-unit">points</span>
+        </div>
+
+        <!-- Feedback badge card -->
+        <div id="badge-card" class="badge-display">
+          <div class="badge-icon-container">
+            <div id="badge-glow-effect" class="badge-glow"></div>
+            <svg id="badge-svg" class="icon badge-icon" viewBox="0 0 24 24"><use href="#icon-heartbeat"></use></svg>
+          </div>
+          <div class="badge-text">
+            <h3 id="badge-title" class="badge-heading">Supercharged Doctor</h3>
+            <p id="badge-desc" class="badge-description">Outstanding energy levels and burnout prevention habits.</p>
+          </div>
+        </div>
+
+        <!-- Stat breakdown -->
+        <div class="stats-summary-grid">
+          <div class="stat-box">
+            <span class="stat-number pos-text" id="stat-wellness-tapped">0</span>
+            <span class="stat-label">Wellness Captured</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number neg-text" id="stat-stressors-tapped">0</span>
+            <span class="stat-label">Stressors Caught</span>
+          </div>
+        </div>
+
+        <div class="gameover-action">
+          <button id="btn-restart-game" class="btn btn-primary btn-glow">
+            <span>Recharge Again</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
