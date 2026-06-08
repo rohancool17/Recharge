@@ -129,7 +129,7 @@ h1, h2, h3, h4 {
 
 .game-screen.active {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr); /* Prevents track size from blowing past container width */
   grid-template-rows: minmax(100%, auto);
   justify-items: center;
   opacity: 1;
@@ -145,8 +145,8 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-panel);
   border-radius: 28px;
   padding: 40px;
-  max-width: 90%;
-  width: 680px;
+  width: 100%; /* Fully responsive width filling available container content */
+  max-width: 680px; /* Constraints bounds on tablets/desktop views */
   z-index: 20;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   margin: auto; /* Vertically and horizontally center when there is space, flow top on overflow */
@@ -321,8 +321,8 @@ h1, h2, h3, h4 {
 
 /* SCREEN 2: INSTRUCTIONS SCREEN */
 .tutorial-card {
-  width: 780px;
-  max-width: 95%;
+  width: 100%; /* Fully responsive width */
+  max-width: 780px; /* Constrains bounds on larger devices */
   animation: slide-up-entrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -420,13 +420,15 @@ h1, h2, h3, h4 {
 /* SCREEN 3: GAME SCREEN & HUD */
 #screen-game {
   padding: 0;
-  justify-content: flex-start;
   background-color: #070a13;
   overflow: hidden; /* Do not allow game board playfield screen to scroll */
 }
 
 #screen-game.active {
   display: flex; /* Override grid layout for the game arena to maintain core layouts */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #game-hud {
@@ -1090,6 +1092,10 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 480px) {
+  .game-screen {
+    padding: 12px;
+  }
+
   /* Scale down the falling elements to fit narrow screens */
   .game-item {
     padding: 8px 14px;
